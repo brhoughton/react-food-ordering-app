@@ -61,5 +61,3 @@ const Menu = () => {
 };
 
 export default Menu;
-
-// 21:13, https://youtu.be/gXlcwtS40LA?si=SR2d1c9dSo29qNw0

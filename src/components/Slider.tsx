@@ -1,23 +1,60 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+const data = [
+  {
+    id: 1,
+    title: "Always fresh and hot",
+    image: "/slide1.png",
+  },
+  {
+    id: 2,
+    title: "We deliver to your door!",
+    image: "/slide2.png",
+  },
+  {
+    id: 3,
+    title: "Voted the best pizza for eight consecutive years",
+    image: "/slide3.png",
+  },
+];
 
 const Slider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(
+      () =>
+        setCurrentSlide((prev) => (prev === data.length - 1 ? 0 : prev + 1)),
+      4000
+    );
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="flex flex-col h-[calc(100vh-6rem)]">
+    <div className="flex flex-col h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)]">
       {/* TEXT CONTAINER */}
-      <div className="h-1/2">
-        <h1 className="">Test</h1>
-        <button className="">Order Now</button>
+      <div className="h-1/2 flex items-center justify-center flex-col gap-8 text-red-700 font-bold">
+        <h1 className="text-5xl text-center uppercase p-4">
+          {data[currentSlide].title}
+        </h1>
+        <button className="bg-red-700 text-white py-4 px-8 md:text-6xl xl:text-7xl">
+          Order Now
+        </button>
       </div>
 
       {/* IMAGE CONTAINER */}
       <div className=" w-full h-1/2 relative">
-        <Image src="/slide1.png" alt="slide image" fill />
+        <Image
+          src={data[currentSlide].image}
+          alt="slide image"
+          fill
+          className="object-cover"
+        />
       </div>
     </div>
   );
 };
 
 export default Slider;
-
-// 37:57, https://youtu.be/gXlcwtS40LA?si=baXP_MHPy7XHjkm5

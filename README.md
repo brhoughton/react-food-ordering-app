@@ -10,5 +10,5 @@ A landing page, menu page wtih sub-categories, individual pages for each item wi
 
 - TypeScript 5.3.3
 - React 18.2.0
-- TypeScript 5.1.6
+- Tailwind 3.3.0
 - Next 13.4.10

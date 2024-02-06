@@ -1,4 +1,4 @@
-# React Foor Odering App
+# React Food Odering App
 
 An online ordering app for a local restaurant.
 
